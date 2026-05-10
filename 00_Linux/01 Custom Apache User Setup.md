@@ -5,10 +5,10 @@
 
 ## Why this task ?
  - In real companies, multiple applications run on the same server.
-	1 Finance app
-	2 HR app
-	3 Ecommerce app
-	4 Internal dashboard
+ - 1 Finance app
+ - 2 HR app
+ - 3 Ecommerce app
+ - 4 Internal dashboard
  - If all the users run under the same user called "/var/www-data"	
 		/var/www/
 			├── finance-app

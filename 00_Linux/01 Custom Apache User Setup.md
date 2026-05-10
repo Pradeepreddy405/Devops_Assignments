@@ -4,21 +4,24 @@
 - You are creating a dedicated Linux user account for a web application running on Apache.
 
 ## Why this task ?
-In real companies, multiple applications run on the same server.
+In real companies, multiple applications run on the same server. Let say below applications runs on same server without isolation
  - 1 Finance app
  - 2 HR app
  - 3 Ecommerce app
  - 4 Internal dashboard
  - If all the users run under the same user called "/var/www-data"	
-		/var/www/
-			├── finance-app
-			├── hr-app
-			├── ecommerce-app
- - Problmes:	
-	1 one hacked app can access another app
-	2 permissions become messy
-	3 auditing becomes difficult
-	4 security isolation becomes weak
+		
+```
+	/var/www/
+	├── finance-app
+	├── hr-app
+	├── ecommerce-app
+```
+- Problmes:	
+ - 1 one hacked app can access another app
+ - 2 permissions become messy
+ - 3 auditing becomes difficult
+ - 4 security isolation becomes weak
  
  - To avoid this problems , companies uses one user for one application , By doing this we can achieve
 	1 user isolation

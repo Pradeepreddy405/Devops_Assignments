@@ -4,7 +4,7 @@
 - You are creating a dedicated Linux user account for a web application running on Apache.
 
 ## Why this task ?
- - In real companies, multiple applications run on the same server.
+In real companies, multiple applications run on the same server.
  - 1 Finance app
  - 2 HR app
  - 3 Ecommerce app

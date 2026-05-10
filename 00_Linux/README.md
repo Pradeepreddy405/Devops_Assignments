@@ -1,7 +1,7 @@
-### LINUX tasks
+### LINUX TASKS
 
 
-## 1 LEVEL_1
+##  LEVEL_1
 
 1. 	Custom Apache User Setup
 2. 	Group Creation and User Assignment
@@ -21,6 +21,8 @@
 16. Firewall Configuration
 17. Process Limit Adjustment
 18. SELinux Installation and Configuration
+
+---
 
 ## LEVEL_2
 
@@ -49,6 +51,8 @@
 41. Linux LogRotate
 42. Application Security
 
+---
+
 ## LEVEL_3
 
 43. Apache Redirects
@@ -61,6 +65,8 @@
 50. Linux Process Troubleshooting
 51. PAM Authentication for Apache
 52. Setup SSL for Nginx
+
+---
 
 ## LEVEL_4
 

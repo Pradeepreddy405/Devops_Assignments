@@ -1,4 +1,7 @@
-LINUX tasks
+### LINUX tasks
+
+
+## 1 LEVEL_1
 
 1. 	Custom Apache User Setup
 2. 	Group Creation and User Assignment
@@ -18,6 +21,9 @@ LINUX tasks
 16. Firewall Configuration
 17. Process Limit Adjustment
 18. SELinux Installation and Configuration
+
+## LEVEL_2
+
 19. Create a Cron Job
 20. Linux Banner
 21. Linux Collaborative Directories
@@ -42,6 +48,9 @@ LINUX tasks
 40. Linux GPG Encryption
 41. Linux LogRotate
 42. Application Security
+
+## LEVEL_3
+
 43. Apache Redirects
 44. Install and Configure SFTP
 45. Install and Configure Tomcat Server
@@ -52,6 +61,9 @@ LINUX tasks
 50. Linux Process Troubleshooting
 51. PAM Authentication for Apache
 52. Setup SSL for Nginx
+
+## LEVEL_4
+
 53. Install and Configure Nginx as an LBR
 54. LEMP Troubleshooting
 55. Install and Configure PostgreSQL

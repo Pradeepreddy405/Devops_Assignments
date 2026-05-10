@@ -1,9 +1,10 @@
-### 1.Custom Apache User Setup
+## 1 Custom Apache User Setup
 
 - This is a Linux system administration and DevOps security task.
 - You are creating a dedicated Linux user account for a web application running on Apache.
+- For security hardening, instead of running Apache with default users, we can create a dedicated non-login service account and group. Then we assign ownership of web directories and configure Apache to run under that custom user. This follows the principle of least privilege and improves isolation and security.
 
-## Why this task ?
+## 2 Why this task ?
 In real companies, multiple applications run on the same server. Let say below applications runs on same server without isolation
  - 1 Finance app
  - 2 HR app
@@ -29,7 +30,7 @@ In real companies, multiple applications run on the same server. Let say below a
 	3 least privilege security
 
 ---
-BEFORE
+## 3 BEFORE
 
                     SERVER
 ------------------------------------------------
@@ -49,7 +50,7 @@ If Ecommerce app gets hacked:
 Single point of compromise.
 
 ---
-AFTER
+## 4 AFTER
 
                     SERVER
 ------------------------------------------------
@@ -75,27 +76,31 @@ Now
 
 ---
 	
-### Solution :
-	- Undestand Requirement 
-	- Create a Linux user named ammar
-	- Set custom UID as 1422
-	- Set home directory as /var/www/ammar
-	- Perform this on App Server 2
+## 5 Solution :
+ - Undestand Requirement 
+ - Create a Linux user named ammar
+ - Set custom UID as 1422
+ - Set home directory as /var/www/ammar
+ - Perform this on App Server 2
 
 
-### Steps : 
-	sudo useradd -u 1422 -d /var/www/ammar -m ammar
-	
-	grep ammar /etc/passwd
-	ls -ld /var/www/ammar
+### Steps :
+1 Creates a new user named ammar with UID 1422 and home directory /var/www/ammar, and automatically creates that directory.
+ - sudo useradd -u 1422 -d /var/www/ammar -m ammar
+
+2 Searches the /etc/passwd file to verify that the ammar user entry was successfully created.	
+ - grep ammar /etc/passwd
+   
+3 Displays detailed permissions, owner, and directory information for /var/www/ammar.
+ - ls -ld /var/www/ammar
 
 
 
 
-For security hardening, instead of running Apache with default users, we can create a dedicated non-login service account and group. Then we assign ownership of web directories and configure Apache to run under that custom user. This follows the principle of least privilege and improves isolation and security.
 
 
-Explanation : 
+
+## 6 Explanation : 
 
 1 Running each web application with its own Linux user improves security isolation and reduces blast radius during compromise. If one application is exploited, attacker access remains restricted to that application’s files and permissions instead of the entire web server environment.
 
@@ -110,9 +115,9 @@ Each application gets:
 	* isolated home directory
 	* restricted file permissions
 
-This prevents one compromised application from accessing another application's files or processes.
+5 This prevents one compromised application from accessing another application's files or processes.
 
-The custom Apache user typically owns the application directory under /var/www, and Apache or related services run with controlled permissions tied to that user.
+6 The custom Apache user typically owns the application directory under /var/www, and Apache or related services run with controlled permissions tied to that user.
 
 This improves:
 	* security isolation

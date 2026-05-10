@@ -32,15 +32,15 @@ In real companies, multiple applications run on the same server. Let say below a
 ---
 ## 3 BEFORE
 
-                    SERVER
+```
+SERVER
 ------------------------------------------------
  Apache Service (www-data)
-
     ├── HR Application
     ├── Ecommerce Application
     ├── Payroll Application
     └── Inventory Application
-
+```
 
 If Ecommerce app gets hacked:
 	- attacker can access HR files
@@ -52,7 +52,8 @@ Single point of compromise.
 ---
 ## 4 AFTER
 
-                    SERVER
+```
+SERVER
 ------------------------------------------------
 
  Apache Process 1 ---> runs as hruser
@@ -67,6 +68,7 @@ Single point of compromise.
 /var/www/payroll
 /var/www/inventory
 
+```
 Now 
 	- each application  has isolated permissions
 	- applications cannot access each other

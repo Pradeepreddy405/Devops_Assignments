@@ -103,35 +103,23 @@ Now
 
 
 ## 6 Explanation : 
+- 1 Running each web application with its own Linux user improves security isolation and reduces blast radius during compromise. If one application is exploited, attacker access remains restricted to that application’s files and permissions instead of the entire web server environment.
+- 2 Custom UIDs are useful for identity consistency across shared storage, containers, and distributed systems. Using /var/www as the home directory aligns with standard Linux web hosting architecture where application content is typically stored and served by Apache or nginx.
+- 3 In enterprise environments, running multiple applications under a shared Apache user like www-data creates security and permission risks.
+- 4 To improve isolation and enforce least privilege access, organizations create dedicated Linux users per application.
 
-1 Running each web application with its own Linux user improves security isolation and reduces blast radius during compromise. If one application is exploited, attacker access remains restricted to that application’s files and permissions instead of the entire web server environment.
+	Each application gets:
+		* its own UID
+		* isolated home directory
+		* restricted file permissions
 
-2 Custom UIDs are useful for identity consistency across shared storage, containers, and distributed systems. Using /var/www as the home directory aligns with standard Linux web hosting architecture where application content is typically stored and served by Apache or nginx.
+- 5 This prevents one compromised application from accessing another application's files or processes.
+- 6 The custom Apache user typically owns the application directory under /var/www, and Apache or related services run with controlled permissions tied to that user.
 
-3 In enterprise environments, running multiple applications under a shared Apache user like www-data creates security and permission risks.
+	This improves:
+		* security isolation
+		* auditing
+		* compliance
+		* operational maintainability
 
-4 To improve isolation and enforce least privilege access, organizations create dedicated Linux users per application.
-
-Each application gets:
-	* its own UID
-	* isolated home directory
-	* restricted file permissions
-
-5 This prevents one compromised application from accessing another application's files or processes.
-
-6 The custom Apache user typically owns the application directory under /var/www, and Apache or related services run with controlled permissions tied to that user.
-
-This improves:
-	* security isolation
-	* auditing
-	* compliance
-	* operational maintainability
-
-For example:
-	sudo useradd -u 1029 -d /var/www/javed -m javed
-
-This command:
-	* creates the user
-	* assigns a fixed UID
-	* creates a dedicated application directory
-	* enables controlled ownership and permission management
+---

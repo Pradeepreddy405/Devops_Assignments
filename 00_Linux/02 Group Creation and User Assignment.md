@@ -1,4 +1,4 @@
-### 2 Group Creation and User Assignment
+## 2 Group Creation and User Assignment
 
 ### Explanation
 - In Linux, groups are used to simplify permission management and enforce access control at scale.
@@ -19,24 +19,23 @@
 
 
 ### Solution 
-Step 1: Check Group Exists,if not create a group name 
-	getent group  nautilus_admin_users			---check group		
-	sudo groupadd nautilus_admin_users			---Group creation
+#### Step 1: Check Group Exists,if not create a group name 
+	- getent group  nautilus_admin_users			---check group		
+	- sudo groupadd nautilus_admin_users			---Group creation
 
-Step 2:	Verify User Exists, if not exists create a user id
-	id kano										---check id
-	sudo useradd kano							---Creating the new Userid "kano"
+#### Step 2:	Verify User Exists, if not exists create a user id
+	- id kano										---check id
+	- sudo useradd kano							---Creating the new Userid "kano"
 
-Step 3:	Verify User Already in Group
-	groups kano or id kano 						---Command tell you existed groups
+#### Step 3:	Verify User Already in Group
+	- groups kano or id kano 						---Command tell you existed groups
 
-Step 4: Add User to Group
-	sudo usermod -aG nautilus_admin_users kano
+#### Step 4: Add User to Group
+	- sudo usermod -aG nautilus_admin_users kano
 	
-Step 5: Final Verification
-	id kano
-	
-	Expected Output : uid=1002(kano) gid=1002(kano) groups=1002(kano),1005(nautilus_admin_users)
+#### Step 5: Final Verification
+	- id kano
+	- Expected Output : uid=1002(kano) gid=1002(kano) groups=1002(kano),1005(nautilus_admin_users)
 
 
 
@@ -44,8 +43,7 @@ Step 5: Final Verification
 
 
 
-
-
-getent group nautilus_admin_users || sudo groupadd nautilus_admin_users
-id kano &>/dev/null || sudo useradd kano
-id -nG kano | grep -qw nautilus_admin_users || sudo usermod -aG nautilus_admin_users kano
+#### One line commands
+ - getent group nautilus_admin_users || sudo groupadd nautilus_admin_users
+ - id kano &>/dev/null || sudo useradd kano
+ - id -nG kano | grep -qw nautilus_admin_users || sudo usermod -aG nautilus_admin_users kano
